@@ -9,6 +9,14 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = function()
+            require('lualine').setup({})
+        end
+    },
+
     { "nvim-lua/plenary.nvim" },
     {
         "ThePrimeagen/harpoon",
