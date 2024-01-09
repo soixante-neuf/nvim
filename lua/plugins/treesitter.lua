@@ -17,6 +17,7 @@ return {
                     "css",
                     "javascript",
                     "typescript",
+                    "python",
                     "lua",
                     "vim",
                     "vimdoc",

@@ -29,6 +29,8 @@ return {
                     'clangd',
                     'zls',
                     'rust-analyzer',
+                    "pyright",
+                    "mypy",
                     'html-lsp',
                     'css-lsp',
                     'intelephense',
