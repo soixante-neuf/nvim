@@ -23,19 +23,21 @@ return {
         end
     },
 
+    {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+            require("lsp_signature").setup({
+                wrap = true,                -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
+                check_completion_visible = true, -- adjust position of signature window relative to completion popup
+                transparency = 25, -- disabled by default, allow floating win transparent value 1~100
+            })
+        end
+    },
+
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
-
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "VeryLazy",
-        opts = {},
-        config = function(_, opts)
-            require 'lsp_signature'.setup(opts) 
-        end
-    },
 
     { 'neovim/nvim-lspconfig', },
     { "saadparwaiz1/cmp_luasnip" },
