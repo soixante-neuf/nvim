@@ -27,22 +27,29 @@ return {
         "ray-x/lsp_signature.nvim",
         config = function()
             require("lsp_signature").setup({
-                wrap = true,                -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
-                check_completion_visible = true, -- adjust position of signature window relative to completion popup
-                transparency = 25, -- disabled by default, allow floating win transparent value 1~100
+                wrap = true,
+                check_completion_visible = true,
+                transparency = 25,
             })
         end
     },
 
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/nvim-cmp' },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
+    {
+        -- Autocompletion
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            -- Snippet Engine & its associated nvim-cmp source
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
 
-    { 'neovim/nvim-lspconfig', },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "rafamadriz/friendly-snippets" },
-    { 'L3MON4D3/LuaSnip' },
+            -- Adds LSP completion capabilities
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
 
+            -- Adds a number of user-friendly snippets
+            'rafamadriz/friendly-snippets',
+        },
+    },
 
 }
