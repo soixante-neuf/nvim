@@ -15,7 +15,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 
-vim.api.nvim_set_option("clipboard","unnamed")
+vim.api.nvim_set_option("clipboard", "unnamed")
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
