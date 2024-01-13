@@ -1,5 +1,13 @@
 return {
-    { "folke/which-key.nvim" },
+    {
+        "folke/which-key.nvim",
+        opts = {
+            buffer = vim.keymap,
+        },
+        config = function ()
+            vim.keymap.set("n", "<leader>wk", vim.cmd.WhichKey, { desc = "[W]hich [K]ey" })
+        end,
+    },
     { "folke/neodev.nvim" },
     { "nvim-lua/plenary.nvim" },
 

@@ -15,7 +15,7 @@ local capabilities = require('cmp').setup({
         ["<C-n>"] = require('cmp').mapping.select_next_item(),
         ['<C-u>'] = require('cmp').mapping.scroll_docs(-4),
         ['<C-d>'] = require('cmp').mapping.scroll_docs(4),
-    }),
+    })
 })
 
 local on_attach = function(_, bufnr)
@@ -38,30 +38,10 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "<leader>vr", function() vim.lsp.buf.rename() end,
         { buffer = bufnr, remap = false, desc = "[V]ariable [R]ename" })
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
-        { buffer = bufnr, remap = false, desc = "Signature [H]elp" })
+        { buffer = bufnr, remap = true, desc = "Signature [H]elp" })
     vim.keymap.set("n", "<leader>sm", vim.cmd.ClangdSwitchSourceHeader,
         { desc = "[S]witch between [M]odule files" })
 
-    local cmp = require('cmp')
-    cmp.setup({
-        sources = {
-            { name = 'nvim_lsp' },
-            { name = "luasnip" },
-            { name = 'buffer' },
-            { name = "path" },
-        },
-        preselect = 'item',
-        completion = {
-            completeopt = 'menu,menuone,noinsert'
-        },
-        mapping = cmp.mapping.preset.insert({
-            ['<Tab>'] = cmp.mapping.confirm({ select = false }),
-            ["<C-p>"] = cmp.mapping.select_prev_item(),
-            ["<C-n>"] = cmp.mapping.select_next_item(),
-            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        }),
-    })
 end
 
 return {
@@ -77,6 +57,7 @@ return {
                 ensure_installed = {
                     'lua_ls',
                     'clangd',
+                    "autotools_ls",
                     'zls',
                     'rust_analyzer',
                     "pyright",
@@ -103,7 +84,7 @@ return {
                                     globals = { "vim" }
                                 }
                             }
-                        }
+                        },
                     }
                 end,
 
@@ -113,8 +94,6 @@ return {
                     }
                 end
             }
-
-            vim.cmd("MasonUpdate")
         end
     },
 }
