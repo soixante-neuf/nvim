@@ -3,6 +3,10 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>wk", vim.cmd.WhichKey, { desc = "[W]hich [K]ey" })
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex, { desc = "[F]ile [E]xit", })
 
+vim.keymap.set("n", "<leader><leader>", function ()
+    vim.cmd("!" .. vim.fn.input("Terminal command to execute: "))
+end, { desc = "Run terminal command" })
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected line up" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected line down" })
 
@@ -19,16 +23,11 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "[P]aste without loosing cop
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "[F]ormat" })
 
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "[S]earch and [R]eplace" })
 
 --vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
 
 -- ------------------------------------------------------------------------------------------------
 -- LSP --------------------------------------------------------------------------------------------
@@ -72,7 +71,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         opts.desc = "[G]o [I]mplimentation"
         vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)
         opts.desc = "Signature Help"
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
         opts.desc = "[T]ype [D]efinition"
         vim.keymap.set('n', '<leader>td', vim.lsp.buf.type_definition, opts)
         opts.desc = "[R]e[n]ame"
