@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>wk", vim.cmd.WhichKey, { desc = "[W]hich [K]ey" })
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex, { desc = "[F]ile [E]xit", })
 
-vim.keymap.set("n", "<leader><leader>", function ()
+vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("!" .. vim.fn.input("Terminal command to execute: "))
 end, { desc = "Run terminal command" })
 
@@ -81,8 +81,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         opts.desc = "[G]o [R]eferences"
         vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
         opts.desc = "[F]ormat"
-        vim.keymap.set('n', '<leader>f', function()
-            vim.lsp.buf.format { async = true }
-        end, opts)
+        vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
     end,
 })
