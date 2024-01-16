@@ -2,6 +2,7 @@ return {
     { "folke/which-key.nvim" },
     { "folke/neodev.nvim" },
     { "nvim-lua/plenary.nvim" },
+    { "alec-gibson/nvim-tetris", event = "VeryLazy" },
 
     {
         'nvim-lualine/lualine.nvim',
