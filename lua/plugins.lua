@@ -25,19 +25,9 @@ return {
     },
 
     {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-            require("lsp_signature").setup({
-                wrap = true,
-                check_completion_visible = true,
-                transparency = 25,
-            })
-        end
-    },
-
-    {
         'mbbill/undotree',
-        config = function()
+        event = "VeryLazy",
+        init = function()
             vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndotree [T]oggle" })
             vim.keymap.set("n", "<leader>uf", vim.cmd.UndotreeFocus, { desc = "[U]ndotree [F]ocus" })
         end,
@@ -47,17 +37,9 @@ return {
         -- Autocompletion
         'hrsh7th/nvim-cmp',
         dependencies = {
-            -- Snippet Engine & its associated nvim-cmp source
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-
-            -- Adds LSP completion capabilities
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-buffer',
-
-            -- Adds a number of user-friendly snippets
-            'rafamadriz/friendly-snippets',
         },
     },
 

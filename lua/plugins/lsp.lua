@@ -24,6 +24,7 @@ return {
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+            capabilities.textDocument.completion.completionItem.snippetSupport = false
 
             require("neodev").setup()
 
@@ -35,23 +36,13 @@ return {
                 end,
             }
 
-            local luasnip = require("luasnip")
-            require('luasnip.loaders.from_vscode').lazy_load()
-            luasnip.config.setup()
-
             local cmp = require('cmp')
             cmp.setup({
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
-                sources = {
-                    { name = 'nvim_lsp' },
-                    { name = "luasnip" },
-                    { name = 'buffer' },
-                    { name = "path" },
-                },
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp', group_index = 1 },
+                    { name = 'buffer',   group_index = 2 },
+                    { name = 'path',     group_index = 3 },
+                }),
                 preselect = 'item',
                 completion = {
                     completeopt = 'menu,menuone,noinsert'
@@ -64,12 +55,11 @@ return {
 
                     ['<Tab>'] = cmp.mapping.confirm({
                         select = false,
-                        behavior = cmp.ConfirmBehavior.Replace,
+                        behavior = cmp.ConfirmBehavior.Insert,
                     }),
                 }),
 
             })
-
         end
     },
 }
