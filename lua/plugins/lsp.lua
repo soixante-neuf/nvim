@@ -24,11 +24,13 @@ return {
 
             require("neodev").setup()
 
+            local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+            capabilities.textDocument.completion.completionItem.snippetSupport = false
+
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
                     require('lspconfig')[server_name].setup({
-                        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                        .make_client_capabilities())
+                        capabilities = capabilities
                     })
                 end,
             })
