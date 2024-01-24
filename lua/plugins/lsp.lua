@@ -24,13 +24,13 @@ return {
 
             require("neodev").setup()
 
-            local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-            capabilities.textDocument.completion.completionItem.snippetSupport = false
+            local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
+                .make_client_capabilities())
 
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
                     require('lspconfig')[server_name].setup({
-                        capabilities = capabilities
+                        capabilities = lsp_capabilities
                     })
                 end,
             })
@@ -50,6 +50,7 @@ return {
                     { name = 'nvim_lsp', group_index = 1 },
                     { name = 'buffer',   group_index = 2 },
                     { name = 'path',     group_index = 3 },
+                    { name = 'luasnip',  group_index = 4 },
                 }),
                 preselect = 'item',
                 completion = {
@@ -63,8 +64,11 @@ return {
 
                     ['<Tab>'] = cmp.mapping.confirm {
                         behavior = cmp.ConfirmBehavior.Insert,
-                        select = true,
+                        select = false,
                     },
+                    ['<S-Tab>'] = function ()
+                        luasnip.jump(1)
+                    end
                 }),
             })
         end
