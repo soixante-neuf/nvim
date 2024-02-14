@@ -36,9 +36,16 @@ return {
     {
         "tpope/vim-fugitive",
         event = "VeryLazy",
-        config = function ()
+        config = function()
             vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it [S]tatus" })
         end
+    },
+
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
     },
 
     {
