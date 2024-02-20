@@ -13,6 +13,7 @@ return {
                     "rust",
                     "go",
                     "markdown",
+                    "latex",
                     "php",
                     "html",
                     "css",

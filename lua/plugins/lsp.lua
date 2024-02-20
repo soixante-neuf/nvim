@@ -17,7 +17,6 @@ return {
                     "pyright",
                     'html',
                     'cssls',
-                    'intelephense',
                     "vimls",
                 },
             })
