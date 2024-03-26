@@ -14,8 +14,6 @@ return {
                     "autotools_ls",
                     'zls',
                     'rust_analyzer',
-                    'html',
-                    'cssls',
                     "vimls",
                 },
             })
