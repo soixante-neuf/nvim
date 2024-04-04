@@ -1,4 +1,5 @@
 return {
+    --[[
     {
         "mfussenegger/nvim-dap",
         config = function()
@@ -157,4 +158,5 @@ return {
             end
         end
     },
+    --]]
 }
