@@ -11,9 +11,9 @@ return {
                 ensure_installed = {
                     'lua_ls',
                     'clangd',
-                    "autotools_ls",
                     'zls',
                     'rust_analyzer',
+                    'gopls',
                     "vimls",
                 },
             })
