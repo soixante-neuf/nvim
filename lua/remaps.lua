@@ -7,9 +7,9 @@ vim.keymap.set("n", "<leader>id",
 vim.keymap.set("n", "<leader>wk", vim.cmd.WhichKey, { desc = "[W]hich [K]ey" })
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex, { desc = "[F]ile [E]xit", })
 
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("!" .. vim.fn.input("Terminal command to execute: "))
-end, { desc = "Run terminal command" })
+vim.keymap.set("n", "<leader><leader>",
+    ":Git ",
+    { desc = "Start git command" })
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected line up" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected line down" })
