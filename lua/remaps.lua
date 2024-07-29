@@ -4,7 +4,7 @@ vim.keymap.set("n", "<leader>id",
 "iAidas Jurelevičius PS 1 k., 3 gr., 1 pogr.<Esc>",
 { desc = "Auto inserts [I][D]" })
 vim.keymap.set("n", "<leader>she",
-"i!/bin/bash<ENTER><Esc>",
+"i#!/bin/bash<ENTER><Esc>",
 { desc = "Auto inserts shebang line" })
 
 vim.keymap.set("n", "<leader>wk", vim.cmd.WhichKey, { desc = "[W]hich [K]ey" })
