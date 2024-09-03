@@ -11,7 +11,7 @@ return {
                 ensure_installed = {
                     'lua_ls',
                     'clangd',
-                    'zls',
+                    'pylsp',
                     'rust_analyzer',
                     'gopls',
                     'hls',
@@ -63,7 +63,7 @@ return {
                         behavior = cmp.ConfirmBehavior.Insert,
                         select = false,
                     },
-                    ['<S-Tab>'] = function ()
+                    ['<S-Tab>'] = function()
                         luasnip.jump(1)
                     end
                 }),

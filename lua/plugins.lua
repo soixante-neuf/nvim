@@ -8,19 +8,17 @@ return {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
-            require('lualine').setup({})
+            require('lualine').setup({ options = { theme = 'tokyonight' }})
         end
     },
 
     {
-        'rose-pine/neovim',
-        name = 'rose-pine',
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
         config = function()
-            require('rose-pine').setup({
-                disable_background = true,
-                disable_float_background = true,
-            })
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd('colorscheme tokyonight-storm')
+            vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
         end
     },
 
@@ -29,7 +27,7 @@ return {
         event = "VeryLazy",
         init = function()
             vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndotree [T]oggle" })
-            vim.keymap.set("n", "<leader>uf", vim.cmd.UndotreeFocus, { desc = "[U]ndotree [F]ocus" })
+            --vim.keymap.set("n", "<leader>uf", vim.cmd.UndotreeFocus, { desc = "[U]ndotree [F]ocus" })
         end,
     },
 
