@@ -3,22 +3,26 @@ return {
     { "folke/neodev.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "alec-gibson/nvim-tetris", event = "VeryLazy" },
+    { 'eandrju/cellular-automaton.nvim', event = "VeryLazy" },
 
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         config = function()
-            require('lualine').setup({ options = { theme = 'tokyonight' }})
+            require('lualine').setup({ options = { theme = 'gruvbox-material' } })
         end
     },
 
     {
-        "folke/tokyonight.nvim",
+        'sainnhe/gruvbox-material',
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd('colorscheme tokyonight-storm')
-            vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+            vim.g.gruvbox_material_enable_italic = true
+            vim.g.gruvbox_material_background = 'hard'
+            vim.g.gruvbox_material_transparent_background = 2
+
+            vim.cmd.colorscheme('gruvbox-material')
         end
     },
 
@@ -27,7 +31,6 @@ return {
         event = "VeryLazy",
         init = function()
             vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndotree [T]oggle" })
-            --vim.keymap.set("n", "<leader>uf", vim.cmd.UndotreeFocus, { desc = "[U]ndotree [F]ocus" })
         end,
     },
 
@@ -55,6 +58,16 @@ return {
             'hrsh7th/cmp-buffer',
 
             "L3MON4D3/LuaSnip",
+        },
+    },
+
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = "VeryLazy",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
         },
     },
 

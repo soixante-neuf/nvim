@@ -9,7 +9,6 @@ return {
                     "c",
                     "cpp",
                     "make",
-                    "zig",
                     "rust",
                     "go",
                     "markdown",

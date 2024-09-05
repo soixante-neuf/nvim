@@ -14,7 +14,7 @@ return {
                     'pylsp',
                     'rust_analyzer',
                     'gopls',
-                    'hls',
+                    --'hls',
                     "vimls",
                 },
             })
