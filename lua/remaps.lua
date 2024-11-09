@@ -3,10 +3,18 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>id", "iAidas Jurelevičius PS 2 k., 3 gr., 1 pogr.<Esc>", { desc = "Auto inserts [I][D]" })
 vim.keymap.set("n", "<leader>she", "i#!/bin/bash<ENTER><Esc>", { desc = "Auto inserts shebang line" })
 
+vim.keymap.set("n", "<leader>ts", function ()
+    local newTabSize = tonumber(vim.fn.input("New tab size: "))
+    vim.opt.tabstop = newTabSize
+    vim.opt.softtabstop = newTabSize
+    vim.opt.shiftwidth = newTabSize
+end)
+
 vim.keymap.set("n", "<leader>wk", vim.cmd.WhichKey, { desc = "[W]hich [K]ey" })
 vim.keymap.set("n", "<leader>fe", vim.cmd.Ex, { desc = "[F]ile [E]xit", })
 
-vim.keymap.set("n", "<leader><leader>", ":Git ", { desc = "Start git command" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll [D]own" })
@@ -17,10 +25,29 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Move to previous item in find" })
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "[S]elect [A]ll" })
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[S]earch and [R]eplace" })
+vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "[S]elect [A]ll" })
+vim.keymap.set("n", "<leader><leader>", "mrggVG=:update<Enter>`r", { desc = "Format + Update" })
+
+vim.keymap.set("n", "<leader>gc", ":Git ", { desc = "[G]it [C]ommand" })
 
 vim.keymap.set("n", "<leader>sc", ":setlocal spell!<ENTER>", { desc = "Toggle [S]pell [C]heck" })
+
+vim.keymap.set("n", "<leader>m", ":CellularAutomaton make_it_rain<Enter>")
+
+-- ------------------------------------------------------------------------------------------------
+-- Splits -----------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------------------
+
+vim.keymap.set("n", "<C-h>", "<C-w>h", {})
+vim.keymap.set("n", "<C-j>", "<C-w>j", {})
+vim.keymap.set("n", "<C-k>", "<C-w>k", {})
+vim.keymap.set("n", "<C-l>", "<C-w>l", {})
+
+vim.keymap.set("n", "<C-Up>", "<C-w>+", {})
+vim.keymap.set("n", "<C-Down>", "<C-w>-", {})
+vim.keymap.set("n", "<C-Left>", "<C-w><", {})
+vim.keymap.set("n", "<C-Right>", "<C-w>>", {})
 
 -- ------------------------------------------------------------------------------------------------
 -- LSP --------------------------------------------------------------------------------------------
@@ -72,7 +99,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
         opts.desc = "[G]o [R]eferences"
         vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
-        opts.desc = "[F]ormat"
-        vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
     end,
 })

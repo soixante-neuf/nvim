@@ -23,7 +23,6 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 vim.opt.undofile = true
 
-
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 10
@@ -34,3 +33,5 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.cmd("filetype plugin on")
+
+vim.opt.splitright = true

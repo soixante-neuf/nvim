@@ -1,5 +1,5 @@
 return {
-    { "folke/which-key.nvim" },
+    --{ "folke/which-key.nvim" },
     { "folke/neodev.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "alec-gibson/nvim-tetris", event = "VeryLazy" },
@@ -31,6 +31,7 @@ return {
         event = "VeryLazy",
         init = function()
             vim.keymap.set("n", "<leader>ut", vim.cmd.UndotreeToggle, { desc = "[U]ndotree [T]oggle" })
+            vim.keymap.set("n", "<leader>uf", vim.cmd.UndotreeFocus, { desc = "[U]ndotree [F]ocus" })
         end,
     },
 
