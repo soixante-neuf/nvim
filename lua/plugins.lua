@@ -14,6 +14,17 @@ return {
     },
 
     {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {
+            disable_mouse = false,
+        },
+        config = function()
+            require("hardtime").setup()
+        end,
+    },
+
+    {
         'sainnhe/gruvbox-material',
         lazy = false,
         priority = 1000,
