@@ -11,6 +11,7 @@ return {
                     "make",
                     "rust",
                     "go",
+                    "zig",
                     "markdown",
                     "latex",
                     "php",

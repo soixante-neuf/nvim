@@ -15,6 +15,7 @@ return {
                     'rust_analyzer',
                     'gopls',
                     --'hls',
+                    'zls',
                     "vimls",
                 },
             })

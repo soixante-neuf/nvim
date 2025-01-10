@@ -60,6 +60,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         local opts = { buffer = ev.buf }
 
+        opts.desc = "[F]ormat"
+        vim.keymap.set("n", "<leader>f", function () vim.lsp.buf.format() end, opts)
+
         -- Diagnostics
         opts.desc = "[V]iew [D]iagnostics Window"
         vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)

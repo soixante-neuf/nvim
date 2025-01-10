@@ -55,6 +55,13 @@ return {
     },
 
     {
+        "norcalli/nvim-colorizer.lua",
+        config = function ()
+            require("colorizer").setup()
+        end,
+    },
+
+    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
