@@ -1,5 +1,4 @@
 return {
-    --{ "folke/which-key.nvim" },
     { "folke/neodev.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "alec-gibson/nvim-tetris", event = "VeryLazy" },
@@ -11,17 +10,6 @@ return {
         config = function()
             require('lualine').setup({ options = { theme = 'gruvbox-material' } })
         end
-    },
-
-    {
-        "m4xshen/hardtime.nvim",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        opts = {
-            disable_mouse = false,
-        },
-        config = function()
-            require("hardtime").setup()
-        end,
     },
 
     {
@@ -77,16 +65,6 @@ return {
             'hrsh7th/cmp-buffer',
 
             "L3MON4D3/LuaSnip",
-        },
-    },
-
-    {
-        "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        event = "VeryLazy",
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
         },
     },
 
